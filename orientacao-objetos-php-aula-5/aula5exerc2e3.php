@@ -10,11 +10,13 @@ class Retangulo {
     }
 
     function area(){
-        echo "Área: " . $this->base * $this->altura . " metros\n";
+        $area = "Área: " . $this->base * $this->altura . " metros\n";
+        return $area;
     }
 
     function perimetro(){
-        echo "Perímetro: " . 2 * ($this->base + $this->altura) . " metros\n";
+        $perimetro = "Perímetro: " . 2 * ($this->base + $this->altura) . " metros\n";
+        return $perimetro;
     }
 }
 
