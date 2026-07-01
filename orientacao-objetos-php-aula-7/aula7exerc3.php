@@ -5,6 +5,15 @@ class Prato {
     private $quantidade;
     private $valorUnitario;
 
+    public function getValorTotal(){
+        return $this->valorUnitario * $this->quantidade;
+    }
+
+    public function __toString(){
+    $dados = $this->descricao . " | " . $this->quantidade . " | " . $this->valorUnitario . " | Total: " . $this->valorUnitario * $this->quantidade . "\n";
+    return $dados;
+    }
+
     public function getDescricao()
     {
         return $this->descricao;
@@ -41,3 +50,21 @@ class Prato {
         return $this;
     }
 }
+
+$pratos = array();
+$valorTotal = 0;
+
+for ($i=1; $i<=3; $i++){
+    $prato = new Prato;
+    $prato->setDescricao(readline("Descrição: "));
+    $prato->setQuantidade(readline("quantidade: "));
+    $prato->setValorUnitario(readline("valor: "));
+    array_push($pratos, $prato);
+}
+
+foreach ($pratos as $p){
+    echo $p;
+    $valorTotal = $valorTotal + $p->getValorTotal();
+}
+
+echo $valorTotal;
